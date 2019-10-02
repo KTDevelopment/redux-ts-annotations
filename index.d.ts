@@ -13,3 +13,5 @@ export function connectToStore(propType: { new(): any }, compType: any)
 export function ConnectAction(actionCreator: ActionCreatorDefinition<any, any>)
 
 type StateModifier = (state: any) => any
+type DispatchAction = () => any;
+type DispatchActionWithPayload<TPayload> = (payload: TPayload) => any;

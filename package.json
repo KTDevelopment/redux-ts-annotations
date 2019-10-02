@@ -1,6 +1,6 @@
 {
   "name": "redux-ts-annotations",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "annotations extension for redux-ts package",
   "repository": "https://github.com/KTDevelopment/redux-ts-annotations",
   "main": "index.ts",
