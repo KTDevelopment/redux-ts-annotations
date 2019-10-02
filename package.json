@@ -2,7 +2,7 @@
   "name": "redux-ts-annotations",
   "version": "1.0.0",
   "description": "annotations extension for redux-ts package",
-  "main": "todo",
+  "main": "index.ts",
   "scripts": {
     "test": "jest '(\\/test\\/(?!e2e/)).*'"
   },
