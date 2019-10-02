@@ -1,21 +1,20 @@
 import {Component} from 'react';
 import * as React from 'react';
 import {ConnectAction, ConnectProp, ConnectToStore, DispatchActionWithPayload} from "../src";
-import {AddTodo, AddTodoPayload, RemoveTodo} from "./testState/testActions";
-import {TestState} from "./testState/testReducer";
 import {Provider} from "react-redux";
-import {RootState, store} from "./testState";
-
+import {TodoState} from "./testState/reducers";
+import {RootState, store} from "./testState/store";
+import {AddTodo, AddTodoPayload, RemoveTodo, RemoveTodoPayload} from "./testState/actions";
 
 class Props {
-    @ConnectProp('testState') testState?: TestState;
-    @ConnectProp((state: RootState) => state.testState.todos) todos?: TestState["todos"];
+    @ConnectProp('testState') testState?: TodoState;
+    @ConnectProp((state: RootState) => state.testState.todos) todos?: TodoState["todos"];
     @ConnectAction(AddTodo) addTodo?: DispatchActionWithPayload<AddTodoPayload>;
-    @ConnectAction(RemoveTodo) removeTodo?: DispatchActionWithPayload<AddTodoPayload>;
+    @ConnectAction(RemoveTodo) removeTodo?: DispatchActionWithPayload<RemoveTodoPayload>;
 }
 
 @ConnectToStore(Props)
-export class TestComponent extends Component<Props> {
+export class TodoComponent extends Component<Props> {
 
     render() {
         return (
@@ -31,7 +30,7 @@ export class StoreTestComponent extends Component {
     render() {
         return (
             <Provider store={store}>
-                <TestComponent/>
+                <TodoComponent/>
             </Provider>
         );
     }

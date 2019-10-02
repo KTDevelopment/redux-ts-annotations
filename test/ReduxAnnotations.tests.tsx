@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import {StoreTestComponent, TestComponent} from "./TestComponent";
+import {StoreTestComponent, TodoComponent} from "./TodoComponent";
 
 describe('Annotations Tests', () => {
     it('connects props and actions correct', () => {
         const props = renderer
             .create(<StoreTestComponent/>)
             .root
-            .findByType(TestComponent)
+            .findByType(TodoComponent)
             .children[0]
             // @ts-ignore
             .props;

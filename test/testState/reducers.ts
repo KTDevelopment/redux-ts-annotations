@@ -1,11 +1,11 @@
 import {ReducerBuilder} from "redux-ts";
-import {AddTodo, RemoveTodo} from "./testActions";
+import {AddTodo, RemoveTodo} from "./actions";
 
-export interface TestState {
+export interface TodoState {
     todos: string[]
 }
 
-export const testReducer = new ReducerBuilder<TestState>()
+export const todoReducer = new ReducerBuilder<TodoState>()
     .init({
         todos: []
     })
