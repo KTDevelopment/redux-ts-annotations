@@ -1,0 +1,62 @@
+{
+  "name": "redux-ts-annotations",
+  "version": "1.0.0",
+  "description": "annotations extension for redux-ts package",
+  "main": "todo",
+  "scripts": {
+    "test": "jest '(\\/test\\/(?!e2e/)).*'"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/test/.+\\.tests)\\.tsx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/mocks/fileMock.js",
+      "\\.(s?css|sass)$": "<rootDir>/mocks/styleMock.js"
+    }
+  },
+  "tags": [
+    "react",
+    "redux",
+    "typescript",
+    "ts",
+    "action",
+    "reducer",
+    "async"
+  ],
+  "keywords": [
+    "react",
+    "redux",
+    "typescript",
+    "ts",
+    "action",
+    "reducer",
+    "async",
+    "react-component",
+    "annotations"
+  ],
+  "author": "Kevin Thürmann <kevin.thuermann@web.de>",
+  "license": "MIT",
+  "dependencies": {
+    "redux-ts": "^4.1.8",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/react-redux": "^7.1.4",
+    "@types/react-test-renderer": "^16.9.0",
+    "jest": "^24.9.0",
+    "react-test-renderer": "^16.10.1",
+    "ts-jest": "^24.1.0",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.6.3"
+  }
+}

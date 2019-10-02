@@ -1,0 +1,5 @@
+# Created by .ignore support plugin (hsz.mobi)
+test-report
+node_modules
+.idea
+yarn.lock
