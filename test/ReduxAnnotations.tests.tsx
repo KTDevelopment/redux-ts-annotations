@@ -12,7 +12,7 @@ describe('Annotations Tests', () => {
             // @ts-ignore
             .props;
 
-        expect(props.testState).toEqual({ todos: [ 'do this first', 'do this second' ] });
+        expect(props.todoState).toEqual({ todos: [ 'do this first', 'do this second' ] });
         expect(props.todos).toEqual([ 'do this first', 'do this second' ]);
         expect(typeof props.addTodo).toEqual('function');
         expect(typeof props.removeTodo).toEqual('function');

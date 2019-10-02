@@ -5,7 +5,7 @@ A simple extension for [redux-ts](https://github.com/cimdalli/redux-ts), to bind
 ## Requirements
 
 add "experimentalDecorators": true to your tsconfig:
- ```
+ ```json
  "compilerOptions": {
     "experimentalDecorators": true
  }
@@ -15,13 +15,13 @@ add "experimentalDecorators": true to your tsconfig:
 
 install with npm 
 
- ```
+ ```bash
  npm install redux-ts-annotations --save
 ```
 
 or yarn 
 
- ```
+ ```bash
  yarn add redux-ts-annotations
 ```
 
@@ -30,7 +30,7 @@ or yarn
 setup your actions, reducers and store as normal with redux-ts
 
 actions.ts
- ```
+ ```typescript
 import {createAction} from "redux-ts";
 
 export const AddTodo = createAction<AddTodoPayload>('AddTodo');
@@ -47,7 +47,7 @@ export interface RemoveTodoPayload {
 ```
 
 reducers.ts
- ```
+ ```typescript
 import {ReducerBuilder} from "redux-ts";
 import {AddTodo, RemoveTodo} from "./actions";
 
@@ -76,7 +76,7 @@ export const todoReducer = new ReducerBuilder<TodoState>()
 ```
 
 store.ts
- ```
+ ```typescript
 import {StoreBuilder} from "redux-ts";
 import {todoReducer, TodoState} from "./reducers";
 
@@ -96,17 +96,17 @@ export const store = new StoreBuilder<RootState>()
 
 TodoComponent.tsx
 
- ```
+ ```typescript
 import {Component} from 'react';
 import * as React from 'react';
-import {ConnectAction, ConnectProp, ConnectToStore, DispatchActionWithPayload} from "../src";
-import {TodoState} from "./testState/reducers";
-import {RootState, store} from "./testState/store";
-import {AddTodo, AddTodoPayload, RemoveTodo, RemoveTodoPayload} from "./testState/actions";
+import {ConnectAction, ConnectProp, ConnectToStore, DispatchActionWithPayload} from "redux-ts-annotations";
+import {TodoState} from "./reducers";
+import {RootState, store} from "./store";
+import {AddTodo, AddTodoPayload, RemoveTodo, RemoveTodoPayload} from "./actions";
 
 class Props {
-    @ConnectProp('testState') testState?: TodoState;
-    @ConnectProp((state: RootState) => state.testState.todos) todos?: TodoState["todos"];
+    @ConnectProp('todoState') todoState?: TodoState;
+    @ConnectProp((state: RootState) => state.todoState.todos) todos?: TodoState["todos"];
     @ConnectAction(AddTodo) addTodo?: DispatchActionWithPayload<AddTodoPayload>;
     @ConnectAction(RemoveTodo) removeTodo?: DispatchActionWithPayload<RemoveTodoPayload>;
 }
@@ -117,7 +117,7 @@ export class TodoComponent extends Component<Props> {
     render() {
         return (
             <React.Fragment>
-                Hallo TestComponent
+                Hello from TodoComponent
             </React.Fragment>
         );
     }

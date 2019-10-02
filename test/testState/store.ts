@@ -2,14 +2,14 @@ import {StoreBuilder} from "redux-ts";
 import {todoReducer, TodoState} from "./reducers";
 
 export interface RootState {
-    testState: TodoState
+    todoState: TodoState
 }
 
 export const store = new StoreBuilder<RootState>()
     .withInitialState({
-        testState: {
+        todoState: {
             todos: ['do this first', 'do this second']
         }
     })
-    .withReducerBuilder('testState', todoReducer)
+    .withReducerBuilder('todoState', todoReducer)
     .build();

@@ -7,8 +7,8 @@ import {RootState, store} from "./testState/store";
 import {AddTodo, AddTodoPayload, RemoveTodo, RemoveTodoPayload} from "./testState/actions";
 
 class Props {
-    @ConnectProp('testState') testState?: TodoState;
-    @ConnectProp((state: RootState) => state.testState.todos) todos?: TodoState["todos"];
+    @ConnectProp('todoState') todoState?: TodoState;
+    @ConnectProp((state: RootState) => state.todoState.todos) todos?: TodoState["todos"];
     @ConnectAction(AddTodo) addTodo?: DispatchActionWithPayload<AddTodoPayload>;
     @ConnectAction(RemoveTodo) removeTodo?: DispatchActionWithPayload<RemoveTodoPayload>;
 }
@@ -19,7 +19,7 @@ export class TodoComponent extends Component<Props> {
     render() {
         return (
             <React.Fragment>
-                Hallo TestComponent
+                Hello from TodoComponent
             </React.Fragment>
         );
     }
