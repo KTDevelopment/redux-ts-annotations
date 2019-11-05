@@ -1,15 +1,16 @@
 language: node_js
-node_js:
-  - "node"
-  - "lts/*"
 jobs:
   include:
+    - stage: Test
+      node_js:
+        - "8"
+        - "lts/*"
+      script: yarn test
     - stage: Release
       if: branch = master
-      name: "Build"
+      node_js:
+        - "8"
       script: yarn build
-    - script: echo "publish to npm ..."
-      name: "Publish to NPM"
       deploy:
         provider: npm
         api_token: $NPM_API_KEY
