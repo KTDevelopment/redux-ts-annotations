@@ -94,6 +94,8 @@ export const store = new StoreBuilder<RootState>()
     .build();
 ```
 
+Than use annotations in your component.
+
 TodoComponent.tsx
 
  ```typescript

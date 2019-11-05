@@ -33,7 +33,7 @@ export function exportMapDispatcher(propType: { new(): any }) {
 }
 
 function buildObjectFromActionCreatorDefinition(actionCreatorDefinitionMappings: ActionCreatorDefinitionMapping[]) {
-    let props = {};
+    let props: any = {};
     for (const actionCreatorDefinitionMapping of actionCreatorDefinitionMappings) {
         props[actionCreatorDefinitionMapping.actionCreatorKey] = actionCreatorDefinitionMapping.actionCreatorDefinition
     }

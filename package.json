@@ -1,11 +1,15 @@
 {
   "name": "redux-ts-annotations",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "annotations extension for redux-ts package",
   "repository": "https://github.com/KTDevelopment/redux-ts-annotations",
-  "main": "index.ts",
+  "main": "./dist/index.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build:prod": "webpack --config webpack.prod.js",
+    "clean": "rimraf dist test-report",
+    "build": "npm run test && npm run clean && npm run build:prod"
   },
   "jest": {
     "transform": {
@@ -42,6 +46,9 @@
   ],
   "author": "Kevin Thürmann <kevin.thuermann@web.de>",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "redux-ts": "^4.1.8",
     "reflect-metadata": "^0.1.13"
@@ -52,8 +59,14 @@
     "@types/react-test-renderer": "^16.9.0",
     "jest": "^24.9.0",
     "react-test-renderer": "^16.10.1",
+    "rimraf": "^3.0.0",
     "ts-jest": "^24.1.0",
+    "ts-loader": "^6.2.1",
     "tsc": "^1.20150623.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

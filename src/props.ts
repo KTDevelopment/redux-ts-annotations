@@ -17,8 +17,8 @@ export function ConnectProp(propKeyOrModifier: string | StateModifier) {
 
 export function exportMapState(propType: { new(): any }) {
     let propMappings: PropMapping[] = Reflect.getOwnMetadata(connectPropKey, Object.getPrototypeOf(new propType())) || [];
-    return (state, ownProps) => {
-        let props = {};
+    return (state: any, ownProps: any) => {
+        let props: any = {};
         for (let propMapping of propMappings) {
             let prop;
 
