@@ -1,15 +1,23 @@
 language: node_js
 node_js:
-  - "node"
+  - "8"
+  - "10"
   - "lts/*"
-script:
-  - yarn prepublish
-branches:
-  only:
-    - master
-deploy:
-  provider: npm
-  api_token: NPM_API_TOKEN
-  edge: true
-  on:
-    branch: master
+jobs:
+  include:
+    - stage: Test
+      script: yarn test
+    - stage: Build
+      script: yarn build
+      branches:
+        only:
+          - master
+    - stage: Deploy to npm
+      script: echo "Deploying to npm ..."
+      branches:
+        only:
+          - master
+      deploy:
+        provider: npm
+        api_token: $NPM_API_KEY
+        edge: true

@@ -9,8 +9,7 @@
     "test": "jest",
     "build:prod": "webpack --config webpack.prod.js",
     "clean": "rimraf dist",
-    "build": "npm run clean && npm run build:prod",
-    "prepublish": "npm run test && npm run build"
+    "build": "npm run clean && npm run build:prod"
   },
   "jest": {
     "transform": {
