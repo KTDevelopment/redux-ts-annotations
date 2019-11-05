@@ -7,3 +7,9 @@ script:
 branches:
   only:
     - master
+deploy:
+  provider: npm
+  api_token: NPM_API_TOKEN
+  edge: true
+  on:
+    branch: master
