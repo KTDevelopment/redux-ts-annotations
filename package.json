@@ -1,9 +1,9 @@
 {
   "name": "redux-ts-annotations",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "annotations extension for redux-ts package",
   "repository": "https://github.com/KTDevelopment/redux-ts-annotations",
-  "main": "./dist/index.ts",
+  "main": "./dist/redux-ts-annotations.production.min.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "test": "jest",
