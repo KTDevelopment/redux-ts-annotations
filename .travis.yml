@@ -4,14 +4,12 @@ node_js:
   - "lts/*"
 jobs:
   include:
-    - stage: Test
-      script: yarn test
-    - stage: Build
+    - stage: Release
       if: branch = master
+      name: "Build"
       script: yarn build
-    - stage: Deploy to npm
-      if: branch = master
-      script: echo "Deploying to npm ..."
+    - script: echo "publish to npm ..."
+      name: "Publish to NPM"
       deploy:
         provider: npm
         api_token: $NPM_API_KEY
