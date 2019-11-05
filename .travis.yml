@@ -2,21 +2,17 @@ language: node_js
 node_js:
   - "8"
   - "10"
-  - "lts/*"
+  - "lts"
 jobs:
   include:
     - stage: Test
       script: yarn test
     - stage: Build
+      if: branch = master
       script: yarn build
-      branches:
-        only:
-          - master
     - stage: Deploy to npm
+      if: branch = master
       script: echo "Deploying to npm ..."
-      branches:
-        only:
-          - master
       deploy:
         provider: npm
         api_token: $NPM_API_KEY
