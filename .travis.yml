@@ -4,6 +4,11 @@ node_js:
   - "lts/*"
 jobs:
   include:
+    - stage: Test
+      node_js:
+        - "8"
+        - "lts/*"
+      script: yarn test
     - stage: Release
       if: branch = master
       node_js: "8"
