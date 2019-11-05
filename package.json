@@ -1,6 +1,6 @@
 {
   "name": "redux-ts-annotations",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "annotations extension for redux-ts package",
   "repository": "https://github.com/KTDevelopment/redux-ts-annotations",
   "main": "./dist/redux-ts-annotations.production.min.js",
@@ -8,8 +8,9 @@
   "scripts": {
     "test": "jest",
     "build:prod": "webpack --config webpack.prod.js",
-    "clean": "rimraf dist test-report",
-    "build": "npm run test && npm run clean && npm run build:prod"
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run build:prod",
+    "prepublish": "npm run test && npm run build"
   },
   "jest": {
     "transform": {
