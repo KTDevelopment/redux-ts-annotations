@@ -10,5 +10,5 @@ jobs:
       script: yarn build
       deploy:
         provider: npm
-        api_token: NPM_API_TOKEN
+        api_token: $NPM_API_TOKEN
         edge: true
